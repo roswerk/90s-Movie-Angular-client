@@ -19,7 +19,8 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 // What? Call the User Registration Endpoint. 
 // Method: POST
 // Requires Authorization: No
-export class UserRegistrationService{
+
+  export class FetchApiDataService{
   // Inject HttpClient module to the constructor params
 
   // This will provide HttpClient to the entire class, making it available via this.http
@@ -37,30 +38,11 @@ export class UserRegistrationService{
   }
 
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-  }
-
-
 
 // 2 - ==================================================== User Login
 // What? Call the User Login Endpoint
 // Method: POST
 // Requires Authorization: No
-export class UserLoginService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // User Login endpoint: https://api90smovies.herokuapp.com/login?userName=test1&password=12345
 
@@ -73,30 +55,11 @@ export class UserLoginService{
   }
 
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-  }
-
-
 
 // 3 - ==================================================== All Movies
 // What? Get all Movies Endpoint
 // Method: GET
-// Requires Authorization: YES
-export class GetAllMoviesService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
+// Requires Authorization: Yes
 
 // Get All Movies endpoint: https://api90smovies.herokuapp.com/movies
 
@@ -112,31 +75,12 @@ export class GetAllMoviesService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-
-}
-
 
 
 // 4 - ==================================================== Get one movie
 // What? Call the get one movie Endpoint
 // Method: GET
 // Requires Authorization: Yes
-export class GetMovieService{
-    // Inject HttpClient module to the constructor params
-  
-    // This will provide HttpClient to the entire class, making it available via this.http
-    constructor (private http: HttpClient){
-    }
   
   // Get All Movies endpoint: https://api90smovies.herokuapp.com/movies/{movieTitle}
   
@@ -152,30 +96,12 @@ export class GetMovieService{
         ).pipe(catchError(this.handleError));
     }
   
-    private handleError(error: HttpErrorResponse): any {
-      if(error.error instanceof ErrorEvent){
-        console.error("Some error ocurred: ", error.error.message);
-      }else{
-        console.error(
-          `Error Status Code ${error.status}, ` + 
-          `Error Body is: ${error.error}`);
-      }
-      return throwError("Something bad happened; Plese try again later.")
-      }
-  }
-  
 
 
 // 5 - ==================================================== Get Director
 // What? Call the Get Director Endpoint
 // Method: GET
 // Requires Authorization: Yes
-export class GetDirectorService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Get Director endpoint: https://api90smovies.herokuapp.com/directors/{directorName}
 
@@ -191,30 +117,12 @@ export class GetDirectorService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 6 - ==================================================== Get Genre
 // What? Call the Get Genre Endpoint
 // Method: GET
 // Requires Authorization: Yes
-export class GetGenreService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Get Genre endpoint: https://api90smovies.herokuapp.com/genre/{genreName}
 
@@ -230,30 +138,12 @@ export class GetGenreService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 7 - ==================================================== Get User
 // What? Call the Get User Endpoint
 // Method: GET
 // Requires Authorization: Yes
-export class GetUserService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Get User endpoint: https://api90smovies.herokuapp.com/user/{userName}
 
@@ -269,30 +159,12 @@ export class GetUserService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 8 - ==================================================== Get Fav Movies from a User
 // What? Call the get Fav Movies from a User Endpoint
 // Method: GET
 // Requires Authorization: Yes
-export class GetFavMoviesService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Gets Fav Movies endpoint: https://api90smovies.herokuapp.com/users/{userName}/favMovies/
 
@@ -308,30 +180,12 @@ export class GetFavMoviesService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 9 - ==================================================== Add Fav Movies to a User
 // What? Adds Fav Movies to a User Endpoint
 // Method: POST
 // Requires Authorization: Yes
-export class AddFavMoviesService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Adds Fav Movie endpoint: https://api90smovies.herokuapp.com/users/{userName}/favMovies/{movie_Id}
 
@@ -347,30 +201,12 @@ export class AddFavMoviesService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 10 - ==================================================== Edit User
 // What? Edits User Endpoint
 // Method: PUT
 // Requires Authorization: Yes
-export class EditUserService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Edits endpoint: https://api90smovies.herokuapp.com/user/{userName}
 
@@ -386,30 +222,12 @@ export class EditUserService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 11 - ==================================================== Delete User
 // What? Delets User Endpoint
 // Method: DEL
 // Requires Authorization: Yes
-export class DeleteUserService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Deletes User endpoint: https://api90smovies.herokuapp.com/users/delete/{userName}
 
@@ -425,30 +243,12 @@ export class DeleteUserService{
       ).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-}
-
 
 
 // 12 - ==================================================== Delete Fav Movie
 // What? Deletes FavMovie Endpoint
 // Method: DEL
 // Requires Authorization: Yes
-export class DeleteFavMovieService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
 
 // Deletes Fav Movie endpoint: https://api90smovies.herokuapp.com/users/{userName}/Movies/{movieId}
 
