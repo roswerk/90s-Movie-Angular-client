@@ -15,42 +15,6 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 })
 
 
-// 0 - ==================================================== Welcome message
-// What? Call the Welcome message Endpoint
-// Method: GET
-// Requires Authorization: No
-export class WelcomeMessageService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor (private http: HttpClient){
-  }
-
-// User Login endpoint: https://api90smovies.herokuapp.com/
-
-  // Making the API call for the User Login endpoint
-  public welcomeMessage(userDetails: any): Observable <any>{
-    console.log(userDetails);
-    return this.http
-    .get(apiUrl)
-    .pipe(catchError(this.handleError));
-  }
-
-
-  private handleError(error: HttpErrorResponse): any {
-    if(error.error instanceof ErrorEvent){
-      console.error("Some error ocurred: ", error.error.message);
-    }else{
-      console.error(
-        `Error Status Code ${error.status}, ` + 
-        `Error Body is: ${error.error}`);
-    }
-    return throwError("Something bad happened; Plese try again later.")
-    }
-  }
-
-
-
 // 1 - ==================================================== User Registration
 // What? Call the User Registration Endpoint. 
 // Method: POST
