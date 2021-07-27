@@ -20,13 +20,17 @@ import {MatCardModule} from '@angular/material/card';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 // User Login component
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+// User MovieCard component
+import { MovieCardComponent } from './movie-card/movie-card.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
