@@ -1,11 +1,14 @@
 // src/app/app.component.ts
 import { Component } from '@angular/core';
+// Import Dialog components
+import { MatDialog } from '@angular/material/dialog';
 // User Registration component
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 // User Login component
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-// Import Dialog components
-import { MatDialog } from '@angular/material/dialog';
+// MovieCard component
+import { MovieCardComponent } from './movie-card/movie-card.component';
+
 
 @Component({
   selector: 'app-root',
@@ -17,6 +20,7 @@ export class AppComponent {
   title = 'myFlix-Angular-client';
 
   constructor(public dialog: MatDialog) { }
+
 // This is the function that will open the dialog when the signup button is clicked  
 openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
@@ -27,8 +31,13 @@ openUserRegistrationDialog(): void {
 
   openUserLoginDialog(): void{
     this.dialog.open(UserLoginFormComponent, {
-      // Assigning the dialog a width
       width: "280px"
+    })
+  }
+
+  openMoviesDialog(): void{
+    this.dialog.open(MovieCardComponent, {
+      width: "500px"
     })
   }
 
