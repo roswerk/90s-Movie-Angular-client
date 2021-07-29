@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Importing HttpClient Modules which allows us to perform HTTP requests and 
+// easily manipulate those requests and their responses
 import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,6 +17,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from "@angular/material/icon"; 
+
+// Importing Routing Modules
+import { RouterModule, Routes } from '@angular/router';
 
 // User Registration component
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
@@ -22,7 +28,32 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 // User MovieCard component
 import { MovieCardComponent } from './movie-card/movie-card.component';
+// Welcome component
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+// Genre Form component
+import { GenreFormComponent } from './genre-form/genre-form.component';
+// Director Form component
+import { DirectorFormComponent } from './director-form/director-form.component';
+// MovieView Form component
+import { MovieViewComponent } from './movie-view/movie-view.component';
 
+// Navbar components
+import { HeaderComponent } from './navigation/header/header.component';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component'
+
+// Import Material Navigation Module
+import {MatSidenavModule} from "@angular/material/sidenav"
+import {MatTabsModule} from "@angular/material/tabs"
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+
+
+const appRoutes: Routes = [
+  {path: "", redirectTo: "welcome", pathMatch: "prefix"},
+  {path: "welcome", component: WelcomePageComponent},
+  {path: "movies", component: MovieCardComponent},
+];
 
 
 @NgModule({
@@ -30,9 +61,16 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     AppComponent,
     UserRegistrationFormComponent,
     UserLoginFormComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    WelcomePageComponent,
+    GenreFormComponent,
+    DirectorFormComponent,
+    MovieViewComponent,
+    HeaderComponent,
+    SidenavComponent,
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -43,7 +81,22 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     MatFormFieldModule,
     MatDialogModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule 
+
+  ],
+  exports: [
+    MatSidenavModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatListModule,
+    MatMenuModule 
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
