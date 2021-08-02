@@ -1,19 +1,21 @@
-<mat-toolbar color="primary">
-  <div fxHide.gt-xs>
+<mat-toolbar class="nav" [hidden]="false">
+  <div class="hamburger">
       <button mat-icon-button (click)="onToggleSidenav()">
           <mat-icon>menu</mat-icon>
       </button>
   </div>
-  <div>
-      <a routerLink="/home">Account-Name</a>
+  <div class="logo">
+      <a routerLink="/movies">90s Movies</a>
   </div>
-  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-          <li>
-              <a routerLink="/movies">Profile</a>
+  <div class="navItems">
+      <ul class="navigation-items">
+          <li class="items">
+              <a routerLink="/profile">Profile</a>
           </li>
-          <li>
-              <a routerLink="/">LogOut</a>
+          <li class="items">
+              <a routerLink="/welcome" 
+              (click)="logOut()"
+              >LogOut</a>
           </li>
       </ul>
   </div>
