@@ -10,9 +10,11 @@ import { DirectorFormComponent } from '../director-form/director-form.component'
 // import MovieView Dialog
 import { MovieViewComponent } from '../movie-view/movie-view.component';
 
-
 // Import Dialog resources
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { keyframes } from '@angular/animations';
+import { HeaderComponent } from '../navigation/header/header.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -23,15 +25,23 @@ import { MatDialog } from '@angular/material/dialog';
 export class MovieCardComponent implements OnInit {
 
   movies: any [] = [];
+  userObj = {
+    userName: localStorage.getItem("userName"),
+    password: localStorage.getItem("password"),
+    email: localStorage.getItem("email"),
+    favMovies: localStorage.getItem("favMovies"),
+    birthDate: localStorage.getItem("birthDate"),
+   } 
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar) 
+    { }
 
   ngOnInit(): void {
     this.getMovies();
   }
-
 
   getMovies(): void{
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -94,10 +104,42 @@ openMovieViewDialog(
   };
 
 
+  
+ addFavMovie(
+   movie_Id: any): void{
 
+     this.fetchApiData.addFavMovie(movie_Id).subscribe(() => {
+      // Getting fav movies from local storage 
+      let favMovies = localStorage.getItem("favMovies");
+      let newFav = movie_Id;
 
+      // If LocalStorage's favMovies is empty, create a new item
+      if(favMovies === null){
+        localStorage.setItem("favMovies", newFav)
+        // If localStorage has an favMovies key, append new favMovie to it
+      }else{
+        localStorage.setItem("favMovies", favMovies +", "+ newFav)
+      }
+      
+      this.snackBar.open(`${movie_Id} has been added to your favorites!`, 'OK', {
+        duration: 2000,
+      });
+    });
+}
+
+ delMovies(
+  movie_Id: any): void{
+    this.fetchApiData.deleteFavMovie(movie_Id).subscribe(() => {
+
+      let favMovies = localStorage.getItem("favMovies");
+      let deltedFavMovie = movie_Id;
+  
+      this.snackBar.open(`${movie_Id} has been added to your favorites!`, 'OK', {
+        duration: 2000,
+      });
+});
 
 }
 
 
-
+}
