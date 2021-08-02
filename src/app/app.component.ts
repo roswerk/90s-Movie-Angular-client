@@ -1,5 +1,5 @@
 // src/app/app.component.ts
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
+
 export class AppComponent {
-  title = 'myFlix-Angular-client';
+
+  title = '90s Movies';
+
+  ngOnInit(): void {
+    
+  }
+  
 }
 
