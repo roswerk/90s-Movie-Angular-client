@@ -41,8 +41,12 @@ export class UserLoginFormComponent implements OnInit {
       this.dialogRef.close() //This will close the modal
       console.log(result);
       console.log("Testing localStorage:");
+      console.log(result.userObj)
       localStorage.setItem("userName" ,result.userObj.userName);
       localStorage.setItem("password" ,result.userObj.password);
+      localStorage.setItem("email" ,result.userObj.email);
+      localStorage.setItem("favMovies" ,result.userObj.favoriteMovies);
+      localStorage.setItem("birthDate" ,result.userObj.birthDate)
       localStorage.setItem("token" ,result.token);
       
       this.snackBar.open(result, "OK", {
