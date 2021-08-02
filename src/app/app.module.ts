@@ -41,18 +41,24 @@ import { MovieViewComponent } from './movie-view/movie-view.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component'
 
+// Profile Compoenents
+import { ProfileComponent } from './profile/profile/profile.component';
+
 // Import Material Navigation Module
 import {MatSidenavModule} from "@angular/material/sidenav"
 import {MatTabsModule} from "@angular/material/tabs"
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MainWatchersComponent } from './main-watchers/main-watchers.component';
+
 
 
 const appRoutes: Routes = [
   {path: "", redirectTo: "welcome", pathMatch: "prefix"},
   {path: "welcome", component: WelcomePageComponent},
   {path: "movies", component: MovieCardComponent},
+  {path: "profile", component: ProfileComponent}
 ];
 
 
@@ -68,6 +74,8 @@ const appRoutes: Routes = [
     MovieViewComponent,
     HeaderComponent,
     SidenavComponent,
+    ProfileComponent,
+    MainWatchersComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
