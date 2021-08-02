@@ -1,0 +1,119 @@
+<mat-tab-group>
+  <!-- Start of first profile tab -->
+  <mat-tab label="Profile"> 
+
+    <mat-card class="example-card">
+      <div class="cardContent">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{userObj.userName}}</mat-card-title>
+        <mat-card-subtitle>{{userObj.birthDate}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card>
+        <h4>Your username is: {{userObj.userName}}</h4>
+      </mat-card>
+
+      <mat-card>
+        <h4>Your email is: {{userObj.email}}</h4>
+      </mat-card>
+      
+      <mat-card>
+        <h4>Your favourite movies are:</h4>
+        <p>{{userObj.favMovies}}</p>
+      </mat-card>
+
+
+    </div>
+    </mat-card>
+
+     </mat-tab>
+
+<!-- End of first profile tab -->
+
+<!-- Start of edit profile tab -->
+     <mat-tab label="Edit Profile"> 
+
+
+      <mat-card class="example-card">
+
+        <div class="cardContent">
+
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{userObj.userName}}</mat-card-title>
+          <mat-card-subtitle>{{userObj.birthDate}}</mat-card-subtitle>
+        </mat-card-header>
+  
+        <mat-card>
+          <mat-card>
+            <h4>Your username is: {{userObj.userName}}</h4>
+            <input 
+            matInput 
+            value={{userObj.userName}}
+            [(ngModel)]='userData.userName' 
+            >
+          </mat-card>
+        </mat-card>
+
+        <mat-card>
+        <mat-card>
+          <h4>Your email is: {{userObj.email}}</h4>
+          <input 
+          matInput 
+          value={{userObj.email}}
+          [(ngModel)]='userData.email' 
+          >
+        </mat-card>
+      </mat-card>
+
+
+      <mat-card>
+        <mat-card>
+          <h4>Your email is: {{userObj.birthDate}}</h4>
+          <input 
+          matInput 
+          value={{userObj.birthDate}}
+          [(ngModel)]='userData.birthDate' >
+        </mat-card>
+      </mat-card>
+
+      <mat-card>
+        <mat-card>
+          <h4>Change password:</h4>
+          <input 
+          matInput 
+          value={{userObj.password}}
+          [(ngModel)]='userData.password' >
+        </mat-card>
+      </mat-card>
+
+
+      <mat-card>
+        <mat-card>
+<button
+(click)="editUser()">
+Make Changes
+</button>
+        </mat-card>
+      </mat-card>
+  
+
+      </div>
+      </mat-card>
+      
+      
+        
+          
+            <!-- <mat-card>
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput value={{userObj.userName}}>
+          </mat-form-field>
+          </mat-card>
+      -->
+      
+  
+       </mat-tab>
+  
+</mat-tab-group>
