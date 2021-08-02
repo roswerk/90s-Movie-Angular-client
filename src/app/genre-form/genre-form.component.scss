@@ -1,4 +1,24 @@
 .genreImg{
-  width: 20%;
-  height: 20%;
+  width: auto;
+  height: 7rem;
+  order: -1;
 }
+
+.movieCardModals{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.CardModalsTitle{
+font-size: 2rem;
+order: 2;
+margin-top: 2rem;
+}
+
+.CardModalsContant{
+  order: 3;
+  margin-top: 2rem;
+}
+
