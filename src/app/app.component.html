@@ -1,31 +1,15 @@
-<div class="main-page">
-  <h1>
-    Welcome to myFlix!
-  </h1>
+  <mat-sidenav-container>
 
-  <button
-    mat-raised-button
-    (click)="openUserRegistrationDialog()"
-    style="margin-right: 10px;"
-    color="primary"
-  >Sign Up
-  </button>
+    <mat-sidenav #sidenav role="navigation">
+      <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
+    </mat-sidenav>
 
-  <button
-    mat-raised-button
-    (click)="openUserLoginDialog()"
-    style="margin-right: 10px;"
-    color="primary"
-  >Login
-  </button>
+    <mat-sidenav-content>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header >
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      
+    </mat-sidenav-content>
 
-  <button
-  mat-raised-button
-  (click)="openMoviesDialog()"
-  style="margin-right: 10px;"
-  color="primary"
-  >All Movies
-  </button>
-
-
-</div>
+  </mat-sidenav-container>
