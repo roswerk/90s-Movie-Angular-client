@@ -1,0 +1,42 @@
+.main-page{
+  position: absolute;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -80px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-size: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://images.pexels.com/photos/5698332/pexels-photo-5698332.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
+
+
+.buttons{
+  margin-bottom: 18%;
+}
+
+.button{
+  background-color: #D32F2F;
+}
+
+.title{
+margin-top: 5%;
+color: white;
+font-size: 3rem;
+display: flex;
+text-align: center;
+line-height: 50px;
+}
+
+.welcomeImg{
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: 100%;
+  background-size: cover;
+}
