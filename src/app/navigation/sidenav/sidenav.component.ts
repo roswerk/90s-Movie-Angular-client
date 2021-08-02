@@ -17,5 +17,11 @@ export class SidenavComponent implements OnInit {
     this.sidenavClose.emit();
   }
  
+
+  logOut(){
+    localStorage.clear();
+    window.location.replace("/");
+  }
+
 }
  
