@@ -21,13 +21,15 @@ export class UserRegistrationFormComponent implements OnInit {
     userName: "",
     password: "",
     email: "",
-    birthday: ""
+    birthDate: ""
   }
+
+  
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
     ){ }
 
   ngOnInit(): void {
@@ -42,7 +44,14 @@ export class UserRegistrationFormComponent implements OnInit {
       console.log(result)
       this.snackBar.open(result.userName + " was successfully registered", "OK", {
         duration: 2000
-      });
+      }), 
+      window.location.replace("/movies");
+      localStorage.setItem("userName" ,result.userObj.userName);
+      localStorage.setItem("password" ,result.userObj.password);
+      localStorage.setItem("email" ,result.userObj.email);
+      localStorage.setItem("favMovies" ,result.userObj.favoriteMovies);
+      localStorage.setItem("birthDate" ,result.userObj.birthDate);
+      localStorage.setItem("token" ,result.token);
     }, (result) => {
       this.snackBar.open(result, "OK", {
         duration: 2000
