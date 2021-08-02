@@ -140,7 +140,8 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 7 - ==================================================== Get User
+// 7 - ==================================================== Get User == 
+// ================================================I dont think i have an endpoint with this characteristics
 // What? Call the Get User Endpoint
 // Method: GET
 // Requires Authorization: Yes
@@ -148,16 +149,16 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 // Get User endpoint: https://api90smovies.herokuapp.com/user/{userName}
 
   // Making the API call for the getMovie endpoint
-  public getUser(userName: any): Observable<any> {
+  // public getUser(userName: any): Observable<any> {
 
-    const token = localStorage.getItem('token');
+  //   const token = localStorage.getItem('token');
 
-    return this.http
-    .get(apiUrl + `user/${userName}`, 
-      {headers: new HttpHeaders(
-      {Authorization: 'Bearer ' + token,})}
-      ).pipe(catchError(this.handleError));
-  }
+  //   return this.http
+  //   .get(apiUrl + `user/${userName}`, 
+  //     {headers: new HttpHeaders(
+  //     {Authorization: 'Bearer ' + token,})}
+  //     ).pipe(catchError(this.handleError));
+  // }
 
 
 
@@ -190,12 +191,14 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 // Adds Fav Movie endpoint: https://api90smovies.herokuapp.com/users/{userName}/favMovies/{movie_Id}
 
   // Making the API call for the addFavMovie endpoint
-  public addFavMovie(userName: any, movie_Id: any): Observable<any> {
+  public addFavMovie(movie_Id: any): Observable<any> {
 
     const token = localStorage.getItem('token');
+    const user = localStorage.getItem('userName');
+    console.log(token)
+    console.log(user)
 
-    return this.http
-    .post(apiUrl + `users/${userName}/favMovies/${movie_Id}`, 
+    return this.http.post(apiUrl + `users/${user}/favMovies/${movie_Id}`, movie_Id,
       {headers: new HttpHeaders(
       {Authorization: 'Bearer ' + token,})}
       ).pipe(catchError(this.handleError));
@@ -214,9 +217,10 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
   public editUser(userDetails: any): Observable<any> {
 
     const token = localStorage.getItem('token');
+    const user = localStorage.getItem('userName');
 
     return this.http
-    .put(apiUrl + `user/${userDetails.userName}`, userDetails, 
+    .put(apiUrl + `user/${user}`, userDetails, 
       {headers: new HttpHeaders(
       {Authorization: 'Bearer ' + token,})}
       ).pipe(catchError(this.handleError));
@@ -253,15 +257,22 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 // Deletes Fav Movie endpoint: https://api90smovies.herokuapp.com/users/{userName}/Movies/{movieId}
 
   // Making the API call for the deleteFavMovie endpoint
-  public deleteFavMovie(userName: any, movieId: any): Observable<any> {
+  public deleteFavMovie(movieId: any): Observable<any> {
 
     const token = localStorage.getItem('token');
+    const user = localStorage.getItem('userName');
 
     return this.http
-    .delete(apiUrl + `users/${userName}/Movies/${movieId}`, 
+    .delete(apiUrl + `users/${user}/Movies/${movieId}`, 
       {headers: new HttpHeaders(
       {Authorization: 'Bearer ' + token,})}
       ).pipe(catchError(this.handleError));
+  }
+
+
+  private extractResponseData(res: Object): any {
+    const body = res;
+    return body || { };
   }
 
   private handleError(error: HttpErrorResponse): any {
