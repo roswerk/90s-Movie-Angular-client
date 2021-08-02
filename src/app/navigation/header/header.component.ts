@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     localStorage.clear();
-    window.location.replace("/");
+    window.location.replace("/90s-Movie-Angular-client/welcome");
     
   }
 
