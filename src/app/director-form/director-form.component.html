@@ -1,11 +1,15 @@
-<mat-card>
+<mat-card class="directorsCard">
+  <div class="directorsCardCol1">
   <mat-card-header>
-  <mat-card-title>{{director.name}}</mat-card-title>
-<mat-card-subtitle>{{director.placeOfBirth}}</mat-card-subtitle>
-<mat-card-subtitle>{{director.birthDate}}</mat-card-subtitle>
+  <mat-card-title class="directorsCardTitle">{{director.name}}</mat-card-title>
+<mat-card-subtitle class="directorsCardPOB">{{director.placeOfBirth}}</mat-card-subtitle>
+<mat-card-subtitle class="directorsCardBD">{{director.birthDate}}</mat-card-subtitle>
 </mat-card-header>
 <mat-card-content>
-  <img mat-card-image src={{director.directorImg}} alt= {{director.name}} class="directorImg">
-  <mat-card-subtitle>{{director.bio}}</mat-card-subtitle>
+  <mat-card-subtitle class="directorsCardBio">{{director.bio}}</mat-card-subtitle>
 </mat-card-content>
+</div>
+<div class="directorsCardCol2">
+  <img mat-card-image src={{director.directorImg}} alt= {{director.name}} class="directorImg">
+</div>
 </mat-card>
