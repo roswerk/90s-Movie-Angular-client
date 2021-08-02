@@ -29,17 +29,12 @@ margin-left: -10%;
     height: 20rem;
     order: -1;
     z-index: 0;
-
-    // margin-right: -10%;
     }
-
-    
 
 .movieActions{
 display: flex;
 flex-direction: row;
 margin: 0;
-// padding: 0;
 margin-bottom: -8%;
 margin-left: -5%;
 }
@@ -58,12 +53,10 @@ margin-left: -5%;
 .cardsMainContainer{
   display: flex; 
   flex-wrap: nowrap;
-  // height: 20rem;
 }
 
 
 .collection{
-  // width: 100%;
   background-color: #D32F2F;
   overflow-x: auto;
   overflow-y: hidden;
