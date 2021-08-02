@@ -1,0 +1,111 @@
+.movieCard{
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.movieTitle{
+display: flex;
+flex-direction: row;
+order: 2;
+align-items: flex-start;
+margin-bottom: -8%;
+margin-left: -10%;
+}
+
+.movieSubTitle{
+  display: flex;
+  flex-direction: row;
+  order: 3;
+  margin-bottom: -8%;
+  margin-left: -10%;
+  }
+
+  .movieImg{
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+    height: 20rem;
+    order: -1;
+    z-index: 0;
+
+    // margin-right: -10%;
+    }
+
+    
+
+.movieActions{
+display: flex;
+flex-direction: row;
+margin: 0;
+// padding: 0;
+margin-bottom: -8%;
+margin-left: -5%;
+}
+
+.cardInfo{
+  display: flex;
+  flex-direction: column;
+  order: -1;
+}
+
+
+.movieMatCard{
+  margin: 20px;
+}
+
+.cardsMainContainer{
+  display: flex; 
+  flex-wrap: nowrap;
+  // height: 20rem;
+}
+
+
+.collection{
+  // width: 100%;
+  background-color: #D32F2F;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-radius: 3px;
+}
+
+.welcomeMessage{
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  background-color: #FF5252;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+
+  margin-top: -10px;
+  margin-bottom: 0;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-radius: 3px;
+}
+
+
+.example-card{
+  width: 5px;
+}
+
+
+.active{
+  color: red;
+}
+
+.my_class{
+  filter: invert(0%) sepia(0%) saturate(22%) hue-rotate(346deg) brightness(105%) contrast(105%);
+}
+
+
+
+.active{
+    filter: invert(60%) sepia(20%) saturate(7469%) hue-rotate(323deg) brightness(92%) contrast(124%);
+}
+
+
