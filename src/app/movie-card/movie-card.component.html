@@ -93,16 +93,15 @@
           >
               Synopsis
           </button>
-          <div>
-            <img src="../../assets/like3.svg" 
-            style="width: 20px; height: 20px;"
+          <mat-icon
+          style="width: 20px; height: 20px;"
             (click)="addFavMovie(
               movie._id
             )"
             #myDiv class="my_class" 
-            (click)="myDiv.classList.toggle('active')"
-            >
-          </div>
+          >
+            favorite
+          </mat-icon>
 
 
       </mat-card-actions>
