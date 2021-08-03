@@ -10,6 +10,10 @@ import { FetchApiDataService } from 'src/app/fetch-api-data.service';
   styleUrls: ['./profile.component.scss']
 })
 
+/**
+ * This component is responsible of rendering the User Profile View.
+ */
+
 export class ProfileComponent implements OnInit {
 
   value = localStorage.getItem("userName");
@@ -39,7 +43,10 @@ export class ProfileComponent implements OnInit {
   ) {
    }
 
-
+ /**
+   * This function will get the users birthDate from the localStorage, modify the string format and store it again in localStorage
+   * @returns a consoled version of the new formated birthDate
+   */
 
    changeBirthDate(){
     let currentBirth = localStorage.getItem("birthDate");
@@ -57,6 +64,10 @@ export class ProfileComponent implements OnInit {
     this.getFavMovies()
   }
 
+/**
+   * This method will edit the userObj with newly given details.
+   * @returns New User object.
+   */
 
   editUser(): void{
 
@@ -68,6 +79,11 @@ export class ProfileComponent implements OnInit {
 });
 };
 
+ /**
+   * This function will get all movies received as an array of movie objects and store them in state.
+   * @returns array of movie objects.
+   */
+
 getMovies(): void{
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
     this.movies = resp;
@@ -75,6 +91,11 @@ getMovies(): void{
     return this.movies
   });
 }
+
+ /**
+   * This function will get all FavMovies in a array and store them in localStorage
+   * @returns array of favMovies.
+   */
 
 getFavMovies(){
   let favMovies = localStorage.getItem("favMovies");

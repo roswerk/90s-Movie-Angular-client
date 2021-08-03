@@ -22,6 +22,10 @@ import { HeaderComponent } from '../navigation/header/header.component';
   styleUrls: ['./movie-card.component.scss']
 })
 
+/**
+ * This component is responsible of rendering the Movie Card Views.
+ */
+
 export class MovieCardComponent implements OnInit {
 
   movies: any [] = [];
@@ -43,6 +47,12 @@ export class MovieCardComponent implements OnInit {
     this.getMovies();
   }
 
+  
+/**
+   * Fetch all Movies from DB.
+   * @returns All movies stored in the DB.
+   */
+
   getMovies(): void{
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -50,6 +60,11 @@ export class MovieCardComponent implements OnInit {
       return this.movies
     });
   }
+
+/**
+   * Fetch a specific movie Genre and open Genre Dialog.
+   * @returns genre information about a specific movie in form of a dialog.
+   */
 
   openGetGenreDialog(
     name: string,
@@ -64,6 +79,11 @@ export class MovieCardComponent implements OnInit {
   }
 })
 }
+
+/**
+   * Fetch a specific movie Director and open Director Dialog.
+   * @returns director information about a specific movie in form of a dialog.
+   */
 
 openGetDirectorDialog(
   name: string,
@@ -83,6 +103,10 @@ openGetDirectorDialog(
   });
 };
 
+/**
+   * Fetch a specific movie details and open the movie Dialog.
+   * @returns the movie details in form of a dialog.
+   */
 openMovieViewDialog(
   title: string,
   description: string,
@@ -104,7 +128,10 @@ openMovieViewDialog(
   };
 
 
-  
+/**
+   * Adds a movie to the favMovies array and stores it in localStorage.
+   * @returns a snackBar confirming/failing to add a movie to the DB.
+   */  
  addFavMovie(
    movie_Id: any): void{
 
@@ -127,6 +154,10 @@ openMovieViewDialog(
     });
 }
 
+/**
+   * Deletes a movie from the favMovies array and errases the localStorage version.
+   * @returns a snackBar confirming/failing the errasing of a FavMovie from the DB.
+   */  
  delMovies(
   movie_Id: any): void{
     this.fetchApiData.deleteFavMovie(movie_Id).subscribe(() => {

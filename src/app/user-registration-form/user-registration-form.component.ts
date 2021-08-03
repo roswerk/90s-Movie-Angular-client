@@ -15,6 +15,10 @@ import {MatDialogRef} from "@angular/material/dialog";
   templateUrl: './user-registration-form.component.html',
   styleUrls: ['./user-registration-form.component.scss']
 })
+
+/**
+ * This component will render the userRegistration form.
+ */
 export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = {
@@ -35,8 +39,9 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * This is the function responsible for sending the form inputs to the backend
+   */
   registerUser(): void{
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
       // Logic for a successful user registration goes here

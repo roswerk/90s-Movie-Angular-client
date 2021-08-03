@@ -6,6 +6,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './director-form.component.html',
   styleUrls: ['./director-form.component.scss']
 })
+
+/**
+ * This component is responsible of rendering the Director Form View.
+ */
 export class DirectorFormComponent implements OnInit {
 
   constructor(@Inject (MAT_DIALOG_DATA)

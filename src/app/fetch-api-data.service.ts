@@ -15,19 +15,24 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 })
 
 
-// 1 - ==================================================== User Registration
-// What? Call the User Registration Endpoint. 
-// Method: POST
-// Requires Authorization: No
-
   export class FetchApiDataService{
-  // Inject HttpClient module to the constructor params
-
-  // This will provide HttpClient to the entire class, making it available via this.http
+   /**
+   * Inject HttpClient module to the constructor params.
+   * This will provide HttpClient to the entire class, making it available via this.http.
+   */
   constructor (private http: HttpClient){
   }
 
 // Register a User endpoint: https://api90smovies.herokuapp.com/users/add
+
+
+
+ /**
+   * User registration
+   * @param userDetails
+   * @description Adds a new user object to the Users DB.
+   * @returns confirmation message and userDetails console on dev-tools
+   */
 
   // Making the API call for the User Registration endpoint
   public userRegistration(userDetails: any): Observable <any>{
@@ -38,11 +43,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
   }
 
 
-
-// 2 - ==================================================== User Login
-// What? Call the User Login Endpoint
-// Method: POST
-// Requires Authorization: No
+ /**
+   * User login 
+   * @param userDetails 
+   * @description Logs In user
+   * @returns userObj with bearer token
+   */
 
 // User Login endpoint: https://api90smovies.herokuapp.com/login?userName=test1&password=12345
 
@@ -56,10 +62,10 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 3 - ==================================================== All Movies
-// What? Get all Movies Endpoint
-// Method: GET
-// Requires Authorization: Yes
+  /**
+   * Get All Movies
+   * @returns Array of movie objects.
+   */
 
 // Get All Movies endpoint: https://api90smovies.herokuapp.com/movies
 
@@ -77,10 +83,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 4 - ==================================================== Get one movie
-// What? Call the get one movie Endpoint
-// Method: GET
-// Requires Authorization: Yes
+  /**
+   * Get specific Movie
+   * @description Get a specific Movie's details by title 
+   * @param movieTitle
+   * @returns selected movie object
+   */  
   
   // Get All Movies endpoint: https://api90smovies.herokuapp.com/movies/{movieTitle}
   
@@ -98,10 +106,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
   
 
 
-// 5 - ==================================================== Get Director
-// What? Call the Get Director Endpoint
-// Method: GET
-// Requires Authorization: Yes
+/**
+   * Get specific Director
+   * @description Get a specific Directors's details by name
+   * @param directorName
+   * @returns selected director's details object
+   */   
 
 // Get Director endpoint: https://api90smovies.herokuapp.com/directors/{directorName}
 
@@ -119,10 +129,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 6 - ==================================================== Get Genre
-// What? Call the Get Genre Endpoint
-// Method: GET
-// Requires Authorization: Yes
+/**
+   * Get specific Genre 
+   * @description Get a specific Genre's details by genreName
+   * @param genreName
+   * @returns selected genre's details object
+   */   
 
 // Get Genre endpoint: https://api90smovies.herokuapp.com/genre/{genreName}
 
@@ -140,32 +152,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 7 - ==================================================== Get User == 
-// ================================================I dont think i have an endpoint with this characteristics
-// What? Call the Get User Endpoint
-// Method: GET
-// Requires Authorization: Yes
-
-// Get User endpoint: https://api90smovies.herokuapp.com/user/{userName}
-
-  // Making the API call for the getMovie endpoint
-  // public getUser(userName: any): Observable<any> {
-
-  //   const token = localStorage.getItem('token');
-
-  //   return this.http
-  //   .get(apiUrl + `user/${userName}`, 
-  //     {headers: new HttpHeaders(
-  //     {Authorization: 'Bearer ' + token,})}
-  //     ).pipe(catchError(this.handleError));
-  // }
-
-
-
-// 8 - ==================================================== Get Fav Movies from a User
-// What? Call the get Fav Movies from a User Endpoint
-// Method: GET
-// Requires Authorization: Yes
+/**
+   * Get favMovies
+   * @description Get all selected favMovies by the user
+   * @param userName
+   * @returns Array of favMovies ID's 
+   */   
 
 // Gets Fav Movies endpoint: https://api90smovies.herokuapp.com/users/{userName}/favMovies/
 
@@ -183,10 +175,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 9 - ==================================================== Add Fav Movies to a User
-// What? Adds Fav Movies to a User Endpoint
-// Method: POST
-// Requires Authorization: Yes
+/**
+   * Add favMovies
+   * @description Add favMovies ID's to the userObj
+   * @param movie_Id
+   * @returns confirmation/failed message of movieID added to userObj
+   */   
 
 // Adds Fav Movie endpoint: https://api90smovies.herokuapp.com/users/{userName}/favMovies/{movie_Id}
 
@@ -206,10 +200,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 10 - ==================================================== Edit User
-// What? Edits User Endpoint
-// Method: PUT
-// Requires Authorization: Yes
+/**
+   * Edit User details
+   * @description Edit User Object (userName, password, email, DateOfBirth)
+   * @param userDetails
+   * @returns confirmation/failed message of userObj being updated and consoled on dev-tool
+   */   
 
 // Edits endpoint: https://api90smovies.herokuapp.com/user/{userName}
 
@@ -228,10 +224,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 11 - ==================================================== Delete User
-// What? Delets User Endpoint
-// Method: DEL
-// Requires Authorization: Yes
+/**
+   * Delete User 
+   * @description Deletes User details completely from DB
+   * @param userName
+   * @returns confirmation/failed message of userObj being deleted
+   */   
 
 // Deletes User endpoint: https://api90smovies.herokuapp.com/users/delete/{userName}
 
@@ -249,10 +247,12 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
 
 
 
-// 12 - ==================================================== Delete Fav Movie
-// What? Deletes FavMovie Endpoint
-// Method: DEL
-// Requires Authorization: Yes
+/**
+   * Delete FavMovies 
+   * @description Deletes FavMovies from userObj
+   * @param movieId
+   * @returns confirmation/failed message of FavMovies being deleted from userObj
+   */   
 
 // Deletes Fav Movie endpoint: https://api90smovies.herokuapp.com/users/{userName}/Movies/{movieId}
 
@@ -274,6 +274,11 @@ const apiUrl = "https://api90smovies.herokuapp.com/"
     const body = res;
     return body || { };
   }
+
+  /**
+   * Error handler
+   * @param error
+   */
 
   private handleError(error: HttpErrorResponse): any {
     if(error.error instanceof ErrorEvent){
